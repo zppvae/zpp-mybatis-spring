@@ -6,8 +6,11 @@ import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.zpp.mybatis.mapper.UserMapper;
+import org.zpp.mybatis.registrar.TestScanRegistrar;
 
 import javax.sql.DataSource;
 
@@ -16,7 +19,9 @@ import javax.sql.DataSource;
  * @date 2019/10/11 10:26
  */
 @Configuration
+@ComponentScan("org.zpp")
 @MapperScan("org.zpp.mybatis.mapper")
+@Import(TestScanRegistrar.class)
 public class AppConfig {
 
     @Bean
